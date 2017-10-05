@@ -25,6 +25,15 @@
 </head>
 <body class="blue-grey">
     <div class="container">
+        <ul id="userdropdown" class="dropdown-content">
+            <li><a href="#!">Coming soon!</a></li>
+            <li>
+                <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
+            </li>
+        </ul>
         <nav>
             <div class="nav-wrapper blue-grey darken-3">
                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
@@ -34,7 +43,7 @@
                 </ul>
                 @if(Auth::check())
                     <ul class="right hide-on-med-and-down">
-                        <li><a href="{{ url('/') }}">{{Auth::user()->username}}</a></li>
+                        <li><a class="dropdown-button" href="#!" data-activates="userdropdown">{{Auth::user()->username}}<i class="material-icons right">arrow_drop_down</i></a></li>
                     </ul>
                 @else
                     <ul class="right hide-on-med-and-down">
@@ -46,7 +55,12 @@
                     <li><a href="{{ route('chapter.index') }}">Home</a></li>
                     <li><a href="{{ route('series.index') }}">Series</a></li>
                     @if(Auth::check())
-                        <li><a href="{{ url('/') }}">{{Auth::user()->username}}</a></li>
+                        <li>
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
                     @else
                         <li><a href="{{ url('/login') }}">Login</a></li>
                         <li><a href="{{ url('/register') }}">Register</a></li>
@@ -61,6 +75,7 @@
         <script>  
             $(document).ready(function() {
                 $(".button-collapse").sideNav();
+                $(".dropdown-button").dropdown();
             });
         </script>
     </div>

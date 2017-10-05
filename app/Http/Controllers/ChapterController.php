@@ -29,7 +29,7 @@ class ChapterController extends Controller
      */
     public function create($seriesSlug, $bookSlug)
     {
-        $URL = 'series/' . $seriesSlug . '/book/' . $bookSlug . '/store';
+        $URL = 'creator-hub/series/' . $seriesSlug . '/' . $bookSlug . '/store';
 
         $book = Book::where('slug', $bookSlug)->first();
 

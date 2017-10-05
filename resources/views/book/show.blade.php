@@ -10,7 +10,7 @@
                 <div class="card-stacked">
                     <div class="card-content blue-grey lighten-5">
                         <h2>{{str_limit($book->title, 40)}}</h2>
-                        @if($book->information->user_is_author)
+                        @if($book->information->user_is_author == true)
                             <p><strong>Author:</strong> {{$book->information->getUserById($book->information->user_id)->username}}</p>
                         @else
                             <p><strong>Author:</strong> {{$book->information->author}}</p>
@@ -31,7 +31,7 @@
                 <div class="card-stacked">
                     <div class="card-content blue-grey lighten-5">
                         <h2>{{str_limit($book->title, 40)}}</h2>
-                        @if($book->series->information->user_is_author)
+                        @if($book->series->information->user_is_author == true)
                             <p><strong>Author:</strong> {{$book->series->information->getUserById($book->series->information->user_id)->username}}</p>
                         @else
                             <p><strong>Author:</strong> {{$book->series->information->author}}</p>
@@ -49,7 +49,7 @@
         <ul class="collection">
             <li class="collection-item avatar">
             <img src="{{ asset('img/wukong.jpg') }}" alt="" class="circle responsive-img">
-            <a href="/s/{{$chapter->getSeriesObjectThroughBook($chapter->book_id)->slug}}/{{$chapter->getBookObject($chapter->book_id)->slug}}/{{$chapter->chapter_number}}"><span class="title"><strong>Chapter: {{$chapter->chapter_number}} - {{$chapter->title}}</strong></span></a>
+            <a href="/series/{{$chapter->getSeriesObjectThroughBook($chapter->book_id)->slug}}/{{$chapter->getBookObject($chapter->book_id)->slug}}/{{$chapter->chapter_number}}"><span class="title"><strong>Chapter: {{$chapter->chapter_number}} - {{$chapter->title}}</strong></span></a>
             <p>{{str_limit($chapter->body, 500) }}</p>
             <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
             </li>
