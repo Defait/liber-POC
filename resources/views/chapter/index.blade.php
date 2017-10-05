@@ -2,7 +2,8 @@
 
 @section('content')
 
-    @foreach($chapters->chunk(4) as $chunks)        
+    @if($chapters)
+        @foreach($chapters->chunk(4) as $chunks)        
         <div class="row">
             @foreach($chunks as $chapter)        
                 <div class="col s12 m6">
@@ -20,5 +21,6 @@
             @endforeach
         </div>
         @endforeach
+    @endif
 
 @endsection
