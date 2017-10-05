@@ -11,7 +11,7 @@ class Information extends Model
     ];
 
     protected $hidden = [
-        'series_id', 'book_id', 'user_id', 'cover_img_location',
+        'series_id', 'book_id', 'user_id',
     ];
 
     public function series()
