@@ -30,11 +30,13 @@
                 @foreach($chunks as $book)        
                     <div class="col s6 m3">
                         <div class="card">
-                            <div class="card-image">
-                                <img src="{{ asset($series->information->cover_img_location) }}">
-                                <span class="card-title">{{$book->title}}</span>
-                                <a class="btn-floating halfway-fab waves-effect waves-light red" href="/series/{{$series->slug}}/{{$book->slug}}"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                            </div>
+                            <a href="/series/{{$series->slug}}/{{$book->slug}}">
+                                <div class="card-image">
+                                    <img src="{{ asset($series->information->cover_img_location) }}">
+                                    <span class="card-title">{{$book->title}}</span>
+                                    <a class="btn-floating halfway-fab waves-effect waves-light red" href="/series/{{$series->slug}}/{{$book->slug}}"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                                </div>
+                            </a>
                             <div class="card-content">
                                 @if($book->information)
                                     <p>{{str_limit($book->information->synopsis, 100)}}</p>
