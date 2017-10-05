@@ -10,7 +10,7 @@
         <h1>Create your story</h1>
         <div class="row">
             <div class="input-field col s6">
-                <input placeholder="name" id="name" name="name" type="text" class="validate">
+                <input placeholder="Name" id="name" name="name" type="text" class="validate">
                 <label for="name">Name</label>
             </div>
         </div>
@@ -20,7 +20,7 @@
                 <label for="description">Synopsis</label>
             </div>
         </div>
-        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+        <button class="btn blue-grey darken-3 waves-effect waves-light" type="submit" name="action">Submit
             <i class="material-icons right">send</i>
         </button>
     </div>

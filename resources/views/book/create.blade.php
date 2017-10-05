@@ -20,7 +20,7 @@
                 <label for="synopsis">Synopsis</label>
             </div>
         </div>
-        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+        <button class="btn blue-grey darken-3 waves-effect waves-light" type="submit" name="action">Submit
             <i class="material-icons right">send</i>
         </button>
     </div>
@@ -30,7 +30,7 @@
 
 <script>
     $(document).ready(function() {
-        $('#description').trigger('autoresize');
+        $('#synopsis').trigger('autoresize');
     });
 </script>
 @endsection
