@@ -10,7 +10,7 @@
             <div class="card-stacked">
                 <div class="card-content blue-grey lighten-5">
                     <h2>{{str_limit($series->name, 40)}}</h2>
-                        @if($series->information->user_is_author)
+                        @if($series->information->user_is_author == true)
                         <p><strong>Author:</strong> {{$series->information->getUserById($series->information->user_id)->username}}</p>
                         @else
                         <p><strong>Author:</strong> {{$series->information->author}}</p>
