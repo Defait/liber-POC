@@ -6,6 +6,7 @@ use App\Information;
 use App\Chapter;
 use App\Series;
 use App\Book;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class ChapterController extends Controller
@@ -17,9 +18,11 @@ class ChapterController extends Controller
      */
     public function index()
     {
-        $chapters = Chapter::where('visability_status', 0)->paginate(20);
+        $prefBookId = 0;
 
-        return view('chapter.index', compact('chapters'));
+        $chapters = Chapter::where('created_at', '>', Chapter::getChapterDataForXDaysAgo(9))->orderBy('book_id', 'desc')->limit(40)->get();
+
+        return view('chapter.index', compact('chapters', 'prefBookId'));
     }
 
     /**
@@ -29,7 +32,7 @@ class ChapterController extends Controller
      */
     public function create($seriesSlug, $bookSlug)
     {
-        $URL = 'creator-hub/series/' . $seriesSlug . '/' . $bookSlug . '/store';
+        $URL = 'writers-hub/series/' . $seriesSlug . '/' . $bookSlug . '/store';
 
         $book = Book::where('slug', $bookSlug)->first();
 

@@ -18,7 +18,7 @@
                     <p><strong>Books:</strong> {{$series->getBooks($series->id)->count()}}</p>
                     <p><strong>Chapters:</strong> {{$series->countChaptersForBooks($series->id)}}</p>
                     <h3><strong>Synopsis:</strong></h3>
-                    <p>{{$series->information->synopsis}}</p>
+                    <p>{!! nl2br(e($series->information->synopsis)) !!}</p>
                 </div>
             </div>
         </div>

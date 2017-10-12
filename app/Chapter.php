@@ -24,6 +24,11 @@ class Chapter extends Model
         return $this->belongsTo('App\User');
     }
 
+    function getAllChaptersSortedByBook()
+    {
+        $chapters = DB::table('chapters')->orderBy('book_id', 'desc');
+    }
+
     function getBookObject($id)
     {
         $book = Book::findOrFail($id);
@@ -57,6 +62,13 @@ class Chapter extends Model
         $prevChapter = Chapter::where([['book_id', '=', $chapter->book_id], ['chapter_number', '<', $chapter->chapter_number]])->orderBy('chapter_number', 'desc')->first();
         
         return $prevChapter;
+    }
+
+    public static function getChapterDataForXDaysAgo($days)
+    {
+        $date = date('Y-m-d', strtotime('-'. $days . ' days', time()));
+
+        return $date;
     }
 
 }

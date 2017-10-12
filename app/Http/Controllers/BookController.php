@@ -26,7 +26,7 @@ class BookController extends Controller
      */
     public function create($slug)
     {
-        $URL = 'creator-hub/series/' . $slug . '/store';
+        $URL = 'writers-hub/series/' . $slug . '/store';
 
         return view('book.create', compact('URL'));
     }

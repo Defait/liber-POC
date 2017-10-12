@@ -17,7 +17,7 @@
                         @endif                    
                         <p><strong>Chapters:</strong> {{$book->getChaptersForBook($book->id)->count()}}</p>
                         <h3><strong>Synopsis:</strong></h3>
-                        <p>{{$book->information->synopsis}}</p>
+                        <p>{!! nl2br(e($book->information->synopsis)) !!}</p>
                     </div>
                 </div>
             </div>
@@ -49,7 +49,7 @@
                         @endif  
                         <p><strong>Chapters:</strong> {{$book->getChaptersForBook($book->id)->count()}}</p>
                         <h3><strong>Synopsis:</strong></h3>
-                        <p>{{$book->series->information->synopsis}}</p>
+                        <p>{!! nl2br(e($book->series->information->synopsis)) !!}</p>
                     </div>
                 </div>
             </div>

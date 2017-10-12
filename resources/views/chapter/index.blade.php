@@ -3,26 +3,22 @@
 @section('content')
 
     @if($chapters)
-        @foreach($chapters->chunk(4) as $chunks)        
-        <div class="row">
-            @foreach($chunks as $chapter)        
-                <div class="col s12 m6">
-                    <div class="card">
-                        <a href="series/{{$chapter->getSeriesObjectThroughBook($chapter->book_id)->slug}}/{{$chapter->getBookObject($chapter->book_id)->slug}}/{{$chapter->chapter_number}}">
-                            <div class="card-image">
-                                <img src="{{ asset($chapter->getSeriesObjectThroughBook($chapter->book_id)->information->cover_img_location)}}">
-                                <span class="card-title">{{$chapter->title}}</span>
-                                <a class="btn-floating halfway-fab waves-effect waves-light red" href="series/{{$chapter->getSeriesObjectThroughBook($chapter->book_id)->slug}}/{{$chapter->getBookObject($chapter->book_id)->slug}}/{{$chapter->chapter_number}}"><i class="fa fa-eye" aria-hidden="true"></i></a>
-                            </div>
-                        </a>
-                        <div class="card-content">
-                            <p>{{str_limit($chapter->body, 100)}}</p>
-                        </div>
-                    </div>
+        <div class="col s12">
+
+            @foreach($chapters as $chapter)
+                <div class="card">
+                    <ul class="collection">
+                        <li class="collection-item avatar">
+                            <img src="{{ asset($chapter->getSeriesObjectThroughBook($chapter->book_id)->information->cover_img_location) }}" alt="" class="circle responsive-img">
+                            <a href="/series/{{$chapter->getSeriesObjectThroughBook($chapter->book_id)->slug}}/{{$chapter->getBookObject($chapter->book_id)->slug}}/{{$chapter->chapter_number}}"><span class="title black-text">{{$chapter->getSeriesObjectThroughBook($chapter->book_id)->name}} -  Book: {{$chapter->getBookObject($chapter->book_id)->title}}  - <strong>Chapter: {{$chapter->chapter_number}}</strong></span></a>
+                            <p>{{str_limit($chapter->body, 500) }}</p>
+                            <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                        </li>
+                    </ul>
                 </div>
             @endforeach
         </div>
-        @endforeach
     @endif
+
 
 @endsection

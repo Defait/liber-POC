@@ -20,10 +20,10 @@ Route::get('series/{seriesSlug}/{bookSlug}/{chapterNumber}', 'ChapterController@
 
 Route::group(['middleware' => 'auth'], function()
 {
-    Route::get('creator-hub/create', 'SeriesController@create')->name('series.create');
-    Route::post('creator-hub/store', 'SeriesController@store')->name('series.store');
-    Route::get('creator-hub/{seriesSlug}/create', 'BookController@create');
-    Route::post('creator-hub/{seriesSlug}/store', 'BookController@store');
-    Route::get('creator-hub/{seriesSlug}/{bookSlug}/create', 'ChapterController@create');
-    Route::post('creator-hub/{seriesSlug}/{bookSlug}/store', 'ChapterController@store');
+    Route::get('writers-hub/create', 'SeriesController@create')->name('series.create');
+    Route::post('writers-hub/store', 'SeriesController@store')->name('series.store');
+    Route::get('writers-hub/series/{seriesSlug}/create', 'BookController@create');
+    Route::post('writers-hub/series/{seriesSlug}/store', 'BookController@store');
+    Route::get('writers-hub/series/{seriesSlug}/book/{bookSlug}/create', 'ChapterController@create');
+    Route::post('writers-hub/series/{seriesSlug}/book/{bookSlug}/store', 'ChapterController@store');
 });
