@@ -18,11 +18,11 @@ class ChapterController extends Controller
      */
     public function index()
     {
-        $prefBookId = 0;
+        $prevBookId = 0;
 
         $chapters = Chapter::where('created_at', '>', Chapter::getChapterDataForXDaysAgo(9))->orderBy('book_id', 'desc')->limit(40)->get();
 
-        return view('chapter.index', compact('chapters', 'prefBookId'));
+        return view('chapter.index', compact('chapters', 'prevBookId'));
     }
 
     /**
